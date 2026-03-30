@@ -245,6 +245,22 @@ function openUI() {
     );
     panel.id = UI_ID;
 
+    // Inject scoped styles for select/option dark theme
+    const styleTag = document.createElement("style");
+    styleTag.textContent = `
+        #${UI_ID} select { background:#1a1a1a !important; color:#f0f0f0 !important; }
+        #${UI_ID} select option { background:#1a1a1a !important; color:#f0f0f0 !important; }
+        #${UI_ID} select option:hover,
+        #${UI_ID} select option:checked { background:#333333 !important; color:#ffffff !important; }
+        #${UI_ID} select:focus { border-color:rgba(255,255,255,0.4) !important; }
+    `;
+    document.head.appendChild(styleTag);
+    // Clean up style tag when panel is removed
+    const styleObserver = new MutationObserver(() => {
+        if (!document.getElementById(UI_ID)) { styleTag.remove(); styleObserver.disconnect(); }
+    });
+    styleObserver.observe(document.body, { childList: true });
+
     // Header
     const header = el("div",
         `padding:16px 20px 13px;border-bottom:1px solid rgba(255,255,255,0.1);
@@ -281,7 +297,13 @@ function openUI() {
                 b.style.borderBottom = tid === id ? "2px solid #ffffff" : "2px solid transparent";
             });
             Object.entries(tabPanes).forEach(([tid, p]) => { p.style.display = tid === id ? "" : "none"; });
-            if (id === "load") fillSaveSelect(saveSel);
+            if (id === "load") {
+                fillSaveSelect(saveSel);
+                // Auto-preview the first save as soon as the tab opens
+                if (saveSel.options.length && saveSel.options[0].value) {
+                    saveSel.dispatchEvent(new Event("change"));
+                }
+            }
         };
         tabBtns[id] = tb;
         tabBar.appendChild(tb);
