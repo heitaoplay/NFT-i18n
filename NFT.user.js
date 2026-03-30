@@ -17,8 +17,8 @@
 
 setTimeout(() => {
     import(
-        `https://nicole-bc-group.gitlab.io/NFT/NFT.js?v=${(
-            Date.now() / 10000
-        ).toFixed(0)}`
-    );
+    `https://nicole-bc-group.gitlab.io/NFT/NFT.js?v=${(Date.now() / 10000).toFixed(0)}`
+)
+.then(() => console.log("NFT: Successfully loaded from GitLab Pages!"))
+.catch(err => console.error("NFT: If you see this, the Pages build is still running.", err));
 }, 10000);
