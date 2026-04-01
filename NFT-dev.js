@@ -53,6 +53,7 @@ if (typeof window.__NFT_LOADED__ !== "undefined") {
       const existing = InventoryGet(player, Group);
       if (!existing || existing.Asset?.Name !== Name) {
         InventoryWear(player, Name, Group, snap.Color ?? "Default");
+        ChatRoomCharacterUpdate(player);
       }
       const item = InventoryGet(player, Group);
       if (!item) return { ok: false, msg: `Could not equip "${Name}" in "${Group}". Asset may not exist.` };
@@ -60,6 +61,7 @@ if (typeof window.__NFT_LOADED__ !== "undefined") {
       if (snap.Difficulty !== undefined) item.Difficulty = snap.Difficulty;
       if (snap.Property   !== undefined) item.Property   = JSON.parse(JSON.stringify(snap.Property));
       if (snap.Craft      !== undefined) item.Craft      = JSON.parse(JSON.stringify(snap.Craft));
+      ChatRoomCharacterUpdate(player);
       CharacterLoadCanvas(player);
       return { ok: true, msg: `Applied "${snap.Craft?.Name ?? Name}" to ${Group}.` };
     }
