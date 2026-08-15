@@ -1,7 +1,7 @@
 ﻿// ==UserScript==
 // @name NFT - Nest of Fluffy Treasures
 // @namespace https://www.bondageprojects.com/
-// @version 1.5.4
+// @version 1.5.5
 // @description NFT - Nest of Fluffy Treasures (multilingual EN/DE/FR/RU/CN/TW/UA): Save and load ItemHandheld / ItemMisc items with full appearance, crafter and property restore.
 // @author Nicole, Felix, Tifa
 // @match https://bondageprojects.elementfx.com/*
@@ -21,9 +21,13 @@
 // @run-at document-end
 // ==/UserScript==
 
+// Pinned release tag — jsDelivr serves immutable tags fresh (no branch cache
+// staleness). Bump this together with @version / NFTver on every release.
+const NFT_TAG = "v1.5.5";
+
 setTimeout(() => {
     import(
-    `https://cdn.jsdelivr.net/gh/heitaoplay/NFT-i18n@main/NFT.js?v=${(Date.now() / 10000).toFixed(0)}`
+    `https://cdn.jsdelivr.net/gh/heitaoplay/NFT-i18n@${NFT_TAG}/NFT.js?v=${(Date.now() / 10000).toFixed(0)}`
 )
 .then(() => console.log("NFT: Successfully loaded from jsDelivr CDN!"))
 .catch(err => console.error("NFT: Failed to load the mod from the CDN — check your connection.", err));
