@@ -28,7 +28,7 @@ pouvoir échanger vos objets favoris entre les emplacements sans perdre leur con
 ## Installation
 
 1. Installez un gestionnaire de userscript : **Tampermonkey** (recommandé) ou **Violentmonkey**.
-2. Ouvrez [`NFT.user.js`](NFT.user.js) et laissez votre gestionnaire l'installer.
+2. Cliquez sur **[Installer NFT.user.js](https://raw.githubusercontent.com/heitaoplay/NFT-i18n/main/NFT.user.js)** – votre gestionnaire affiche directement la fenêtre d'installation.
    - C'est un installateur **auto-mise-à-jour** : `@updateURL` / `@downloadURL` pointent
      vers le fichier brut sur GitHub, Tampermonkey vérifie donc les mises à jour automatiquement.
    - À chaque lancement, il charge la mod (`NFT.js`) depuis le **CDN jsDelivr**

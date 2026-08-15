@@ -17,6 +17,12 @@ of your slots without losing how they were configured.
 | Русский    | README.ru.md  |
 | Українська | README.ua.md  |
 
+### ▶ Install now
+[![Install NFT](https://img.shields.io/badge/Install-Tampermonkey%20%2F%20Violentmonkey-blue?logo=tampermonkey&logoColor=white)](https://raw.githubusercontent.com/heitaoplay/NFT-i18n/main/NFT.user.js)
+
+Clicking the button (or the link in *Installation* below) opens the raw script and
+shows the **Tampermonkey / Violentmonkey install prompt** directly — no copy-paste.
+
 ## Features
 
 - Save the currently equipped handheld / misc item under a named slot.
@@ -28,7 +34,8 @@ of your slots without losing how they were configured.
 ## Installation
 
 1. Install a userscript manager: **Tampermonkey** (recommended) or **Violentmonkey**.
-2. Open [`NFT.user.js`](NFT.user.js) and let your manager install it.
+2. Click **[Install NFT.user.js](https://raw.githubusercontent.com/heitaoplay/NFT-i18n/main/NFT.user.js)**
+   — your manager will open the install prompt directly.
    - It is a **self-updating** installer: `@updateURL` / `@downloadURL` point at the
      raw file on GitHub, so Tampermonkey checks for updates automatically.
    - On each run it loads the mod (`NFT.js`) from the **jsDelivr CDN**

@@ -27,7 +27,7 @@ NFT 是一款 **Bondage Club 模组**。它让你可以**保存并重新载入 `
 ## 安装
 
 1. 安装用户脚本管理器：**Tampermonkey**（推荐）或 **Violentmonkey**。
-2. 打开 [`NFT.user.js`](NFT.user.js) 并交由管理器安装。
+2. 点击 **[安装 NFT.user.js](https://raw.githubusercontent.com/heitaoplay/NFT-i18n/main/NFT.user.js)**，管理器会直接弹出安装提示，无需复制粘贴。
    - 它是一个**支持自动更新**的安装器：`@updateURL` / `@downloadURL` 指向 GitHub 上的原始文件，
      Tampermonkey 会自动检查更新。
    - 每次运行时会从 **jsDelivr CDN** 载入模组（`NFT.js`）：

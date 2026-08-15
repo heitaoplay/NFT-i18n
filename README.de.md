@@ -29,7 +29,7 @@ Konfiguration zu verlieren.
 ## Installation
 
 1. Installiere einen Userscript-Manager: **Tampermonkey** (empfohlen) oder **Violentmonkey**.
-2. Öffne [`NFT.user.js`](NFT.user.js) und lasse es von deinem Manager installieren.
+2. Klicke **[NFT.user.js installieren](https://raw.githubusercontent.com/heitaoplay/NFT-i18n/main/NFT.user.js)** – dein Manager öffnet direkt den Installationsdialog.
    - Es ist ein **selbstaktualisierendes** Installationsskript: `@updateURL` / `@downloadURL`
      zeigen auf die Rohdatei auf GitHub, sodass Tampermonkey automatisch nach Updates sucht.
    - Bei jedem Start lädt es die Mod (`NFT.js`) vom **jsDelivr-CDN**
