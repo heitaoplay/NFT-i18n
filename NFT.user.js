@@ -1,8 +1,8 @@
 ﻿// ==UserScript==
 // @name NFT - Nest of Fluffy Treasures
 // @namespace https://www.bondageprojects.com/
-// @version 1.4.0
-// @description NFT - Nest of Fluffy Treasures: Save and load ItemHandheld / ItemMisc items with full appearance, crafter and property restore.
+// @version 1.5.0
+// @description NFT - Nest of Fluffy Treasures (multilingual EN/DE/FR/RU/CN/TW/UA): Save and load ItemHandheld / ItemMisc items with full appearance, crafter and property restore.
 // @author Nicole, Felix, Tifa
 // @match https://bondageprojects.elementfx.com/*
 // @match https://www.bondageprojects.elementfx.com/*
@@ -17,7 +17,7 @@
 
 setTimeout(() => {
     import(
-    `https://nicole-bc-group.gitlab.io/NFT/NFT.js?v=${(Date.now() / 10000).toFixed(0)}`
+    `https://cdn.jsdelivr.net/gh/heitaoplay/NFT-i18n@main/NFT.js?v=${(Date.now() / 10000).toFixed(0)}`
 )
 .then(() => console.log("NFT: Successfully loaded from GitLab Pages!"))
 .catch(err => console.error("NFT: If you see this, the Pages build is still running.", err));
