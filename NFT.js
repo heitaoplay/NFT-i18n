@@ -1,7 +1,7 @@
 // NFT - Nest of Fluffy Treasures 1.5.0
 var bcModSDK = function () { "use strict"; const o = "1.2.0"; function e(o) { alert("Mod ERROR:\n" + o); const e = new Error(o); throw console.error(e), e } const t = new TextEncoder; function n(o) { return !!o && "object" == typeof o && !Array.isArray(o) } function r(o) { const e = new Set; return o.filter((o => !e.has(o) && e.add(o))) } const i = new Map, a = new Set; function c(o) { a.has(o) || (a.add(o), console.warn(o)) } function s(o) { const e = [], t = new Map, n = new Set; for (const r of f.values()) { const i = r.patching.get(o.name); if (i) { e.push(...i.hooks); for (const [e, a] of i.patches.entries()) t.has(e) && t.get(e) !== a && c(`ModSDK: Mod '${r.name}' is patching function ${o.name} with same pattern that is already applied by different mod, but with different pattern:\nPattern:\n${e}\nPatch1:\n${t.get(e) || ""}\nPatch2:\n${a}`), t.set(e, a), n.add(r.name) } } e.sort(((o, e) => e.priority - o.priority)); const r = function (o, e) { if (0 === e.size) return o; let t = o.toString().replaceAll("\r\n", "\n"); for (const [n, r] of e.entries()) t.includes(n) || c(`ModSDK: Patching ${o.name}: Patch ${n} not applied`), t = t.replaceAll(n, r); return (0, eval)(`(${t})`) }(o.original, t); let i = function (e) { var t, i; const a = null === (i = (t = m.errorReporterHooks).hookChainExit) || void 0 === i ? void 0 : i.call(t, o.name, n), c = r.apply(this, e); return null == a || a(), c }; for (let t = e.length - 1; t >= 0; t--) { const n = e[t], r = i; i = function (e) { var t, i; const a = null === (i = (t = m.errorReporterHooks).hookEnter) || void 0 === i ? void 0 : i.call(t, o.name, n.mod), c = n.hook.apply(this, [e, o => { if (1 !== arguments.length || !Array.isArray(e)) throw new Error(`Mod ${n.mod} failed to call next hook: Expected args to be array, got ${typeof o}`); return r.call(this, o) }]); return null == a || a(), c } } return { hooks: e, patches: t, patchesSources: n, enter: i, final: r } } function l(o, e = !1) { let r = i.get(o); if (r) e && (r.precomputed = s(r)); else { let e = window; const a = o.split("."); for (let t = 0; t < a.length - 1; t++)if (e = e[a[t]], !n(e)) throw new Error(`ModSDK: Function ${o} to be patched not found; ${a.slice(0, t + 1).join(".")} is not object`); const c = e[a[a.length - 1]]; if ("function" != typeof c) throw new Error(`ModSDK: Function ${o} to be patched not found`); const l = function (o) { let e = -1; for (const n of t.encode(o)) { let o = 255 & (e ^ n); for (let e = 0; e < 8; e++)o = 1 & o ? -306674912 ^ o >>> 1 : o >>> 1; e = e >>> 8 ^ o } return ((-1 ^ e) >>> 0).toString(16).padStart(8, "0").toUpperCase() }(c.toString().replaceAll("\r\n", "\n")), d = { name: o, original: c, originalHash: l }; r = Object.assign(Object.assign({}, d), { precomputed: s(d), router: () => { }, context: e, contextProperty: a[a.length - 1] }), r.router = function (o) { return function (...e) { return o.precomputed.enter.apply(this, [e]) } }(r), i.set(o, r), e[r.contextProperty] = r.router } return r } function d() { for (const o of i.values()) o.precomputed = s(o) } function p() { const o = new Map; for (const [e, t] of i) o.set(e, { name: e, original: t.original, originalHash: t.originalHash, sdkEntrypoint: t.router, currentEntrypoint: t.context[t.contextProperty], hookedByMods: r(t.precomputed.hooks.map((o => o.mod))), patchedByMods: Array.from(t.precomputed.patchesSources) }); return o } const f = new Map; function u(o) { f.get(o.name) !== o && e(`Failed to unload mod '${o.name}': Not registered`), f.delete(o.name), o.loaded = !1, d() } function g(o, t) { o && "object" == typeof o || e("Failed to register mod: Expected info object, got " + typeof o), "string" == typeof o.name && o.name || e("Failed to register mod: Expected name to be non-empty string, got " + typeof o.name); let r = `'${o.name}'`; "string" == typeof o.fullName && o.fullName || e(`Failed to register mod ${r}: Expected fullName to be non-empty string, got ${typeof o.fullName}`), r = `'${o.fullName} (${o.name})'`, "string" != typeof o.version && e(`Failed to register mod ${r}: Expected version to be string, got ${typeof o.version}`), o.repository || (o.repository = void 0), void 0 !== o.repository && "string" != typeof o.repository && e(`Failed to register mod ${r}: Expected repository to be undefined or string, got ${typeof o.version}`), null == t && (t = {}), t && "object" == typeof t || e(`Failed to register mod ${r}: Expected options to be undefined or object, got ${typeof t}`); const i = !0 === t.allowReplace, a = f.get(o.name); a && (a.allowReplace && i || e(`Refusing to load mod ${r}: it is already loaded and doesn't allow being replaced.\nWas the mod loaded multiple times?`), u(a)); const c = o => { let e = g.patching.get(o.name); return e || (e = { hooks: [], patches: new Map }, g.patching.set(o.name, e)), e }, s = (o, t) => (...n) => { var i, a; const c = null === (a = (i = m.errorReporterHooks).apiEndpointEnter) || void 0 === a ? void 0 : a.call(i, o, g.name); g.loaded || e(`Mod ${r} attempted to call SDK function after being unloaded`); const s = t(...n); return null == c || c(), s }, p = { unload: s("unload", (() => u(g))), hookFunction: s("hookFunction", ((o, t, n) => { "string" == typeof o && o || e(`Mod ${r} failed to patch a function: Expected function name string, got ${typeof o}`); const i = l(o), a = c(i); "number" != typeof t && e(`Mod ${r} failed to hook function '${o}': Expected priority number, got ${typeof t}`), "function" != typeof n && e(`Mod ${r} failed to hook function '${o}': Expected hook function, got ${typeof n}`); const s = { mod: g.name, priority: t, hook: n }; return a.hooks.push(s), d(), () => { const o = a.hooks.indexOf(s); o >= 0 && (a.hooks.splice(o, 1), d()) } })), patchFunction: s("patchFunction", ((o, t) => { "string" == typeof o && o || e(`Mod ${r} failed to patch a function: Expected function name string, got ${typeof o}`); const i = l(o), a = c(i); n(t) || e(`Mod ${r} failed to patch function '${o}': Expected patches object, got ${typeof t}`); for (const [n, i] of Object.entries(t)) "string" == typeof i ? a.patches.set(n, i) : null === i ? a.patches.delete(n) : e(`Mod ${r} failed to patch function '${o}': Invalid format of patch '${n}'`); d() })), removePatches: s("removePatches", (o => { "string" == typeof o && o || e(`Mod ${r} failed to patch a function: Expected function name string, got ${typeof o}`); const t = l(o); c(t).patches.clear(), d() })), callOriginal: s("callOriginal", ((o, t, n) => { "string" == typeof o && o || e(`Mod ${r} failed to call a function: Expected function name string, got ${typeof o}`); const i = l(o); return Array.isArray(t) || e(`Mod ${r} failed to call a function: Expected args array, got ${typeof t}`), i.original.apply(null != n ? n : globalThis, t) })), getOriginalHash: s("getOriginalHash", (o => { "string" == typeof o && o || e(`Mod ${r} failed to get hash: Expected function name string, got ${typeof o}`); return l(o).originalHash })) }, g = { name: o.name, fullName: o.fullName, version: o.version, repository: o.repository, allowReplace: i, api: p, loaded: !0, patching: new Map }; return f.set(o.name, g), Object.freeze(p) } function h() { const o = []; for (const e of f.values()) o.push({ name: e.name, fullName: e.fullName, version: e.version, repository: e.repository }); return o } let m; const y = void 0 === window.bcModSdk ? window.bcModSdk = function () { const e = { version: o, apiVersion: 1, registerMod: g, getModsInfo: h, getPatchingInfo: p, errorReporterHooks: Object.seal({ apiEndpointEnter: null, hookEnter: null, hookChainExit: null }) }; return m = e, Object.freeze(e) }() : (n(window.bcModSdk) || e("Failed to init Mod SDK: Name already in use"), 1 !== window.bcModSdk.apiVersion && e(`Failed to init Mod SDK: Different version already loaded ('1.2.0' vs '${window.bcModSdk.version}')`), window.bcModSdk.version !== o && alert(`Mod SDK warning: Loading different but compatible versions ('1.2.0' vs '${window.bcModSdk.version}')\nOne of mods you are using is using an old version of SDK. It will work for now but please inform author to update`), window.bcModSdk); return "undefined" != typeof exports && (Object.defineProperty(exports, "__esModule", { value: !0 }), exports.default = y), y }();
 //Bondage Club Mod Script Development Kit (1.2.0) for more info see: https://github.com/Jomshir98/bondage-club-mod-sdk
-const NFTver = "1.5.0";
+const NFTver = "1.5.3";
 const NFT_API = bcModSDK.registerMod({
     name: 'NFT',
     fullName: 'Nest of Fluffy Treasures',
@@ -75,6 +75,8 @@ const NFT_LOCALES = {
     "msg.noPlayer": "Player not found.",
     "msg.cannotEquip": "Could not equip \"{name}\" in \"{group}\". Asset may not exist.",
     "msg.applied": "Applied \"{name}\" to {group}.",
+    "slots.ItemHandheld": "Handheld",
+    "slots.ItemMisc": "Misc",
   },
   "DE": {
     "ui.title": "\u2736 Gegenstandsspeicher",
@@ -122,6 +124,8 @@ const NFT_LOCALES = {
     "msg.noPlayer": "Spieler nicht gefunden.",
     "msg.cannotEquip": "\u201e{name}\u201c konnte nicht in \u201e{group}\u201c ausger\u00fcstet werden. Gegenstand existiert evtl. nicht.",
     "msg.applied": "\u201e{name}\u201c auf {group} angewendet.",
+    "slots.ItemHandheld": "Hand",
+    "slots.ItemMisc": "Sonstiges",
   },
   "FR": {
     "ui.title": "\u2736 Coffre \u00e0 objets",
@@ -169,6 +173,8 @@ const NFT_LOCALES = {
     "msg.noPlayer": "Joueuse introuvable.",
     "msg.cannotEquip": "Impossible d'\u00e9quiper \u00ab {name} \u00bb dans \u00ab {group} \u00bb. L'objet n'existe peut-\u00eatre pas.",
     "msg.applied": "\u00ab {name} \u00bb appliqu\u00e9 \u00e0 {group}.",
+    "slots.ItemHandheld": "Tenu",
+    "slots.ItemMisc": "Divers",
   },
   "RU": {
     "ui.title": "\u2736 \u0425\u0440\u0430\u043d\u0438\u043b\u0438\u0449\u0435 \u043f\u0440\u0435\u0434\u043c\u0435\u0442\u043e\u0432",
@@ -216,6 +222,8 @@ const NFT_LOCALES = {
     "msg.noPlayer": "\u0418\u0433\u0440\u043e\u043a \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d.",
     "msg.cannotEquip": "\u041d\u0435 \u0443\u0434\u0430\u043b\u043e\u0441\u044c \u043d\u0430\u0434\u0435\u0442\u044c \u00ab{name}\u00bb \u0432 \u00ab{group}\u00bb. \u0412\u043e\u0437\u043c\u043e\u0436\u043d\u043e, \u043f\u0440\u0435\u0434\u043c\u0435\u0442 \u043d\u0435 \u0441\u0443\u0449\u0435\u0441\u0442\u0432\u0443\u0435\u0442.",
     "msg.applied": "\u00ab{name}\u00bb \u043f\u0440\u0438\u043c\u0435\u043d\u0451\u043d \u043a {group}.",
+    "slots.ItemHandheld": "\u0412 \u0440\u0443\u043a\u0430\u0445",
+    "slots.ItemMisc": "\u041f\u0440\u043e\u0447\u0435\u0435",
   },
   "CN": {
     "ui.title": "\u2736 \u624b\u6301\u9053\u5177\u5b58\u6863",
@@ -263,6 +271,8 @@ const NFT_LOCALES = {
     "msg.noPlayer": "\u672a\u627e\u5230\u73a9\u5bb6\u3002",
     "msg.cannotEquip": "\u65e0\u6cd5\u5728\u201c{group}\u201d\u4e2d\u88c5\u5907\u201c{name}\u201d\u3002\u9053\u5177\u53ef\u80fd\u4e0d\u5b58\u5728\u3002",
     "msg.applied": "\u5df2\u5c06\u201c{name}\u201d\u5e94\u7528\u5230 {group}\u3002",
+    "slots.ItemHandheld": "\u624b\u6301",
+    "slots.ItemMisc": "\u6742\u9879",
   },
   "TW": {
     "ui.title": "\u2736 \u624b\u6301\u9053\u5177\u5b58\u6a94",
@@ -310,6 +320,8 @@ const NFT_LOCALES = {
     "msg.noPlayer": "\u627e\u4e0d\u5230\u73a9\u5bb6\u3002",
     "msg.cannotEquip": "\u7121\u6cd5\u5728\u300c{group}\u300d\u4e2d\u88dd\u5099\u300c{name}\u300d\u3002\u9053\u5177\u53ef\u80fd\u4e0d\u5b58\u5728\u3002",
     "msg.applied": "\u5df2\u5c07\u300c{name}\u300d\u5957\u7528\u5230 {group}\u3002",
+    "slots.ItemHandheld": "\u624b\u6301",
+    "slots.ItemMisc": "\u96dc\u9805",
   },
   "UA": {
     "ui.title": "\u2736 \u0421\u0445\u043e\u0432\u0438\u0449\u0435 \u043f\u0440\u0435\u0434\u043c\u0435\u0442\u0456\u0432",
@@ -357,6 +369,8 @@ const NFT_LOCALES = {
     "msg.noPlayer": "\u0413\u0440\u0430\u0432\u0446\u044f \u043d\u0435 \u0437\u043d\u0430\u0439\u0434\u0435\u043d\u043e.",
     "msg.cannotEquip": "\u041d\u0435 \u0432\u0434\u0430\u043b\u043e\u0441\u044f \u043e\u0434\u044f\u0433\u043d\u0443\u0442\u0438 \u00ab{name}\u00bb \u0443 \u00ab{group}\u00bb. \u041c\u043e\u0436\u043b\u0438\u0432\u043e, \u043f\u0440\u0435\u0434\u043c\u0435\u0442 \u043d\u0435 \u0456\u0441\u043d\u0443\u0454.",
     "msg.applied": "\u00ab{name}\u00bb \u0437\u0430\u0441\u0442\u043e\u0441\u043e\u0432\u0430\u043d\u043e \u0434\u043e {group}.",
+    "slots.ItemHandheld": "\u0412 \u0440\u0443\u043a\u0430\u0445",
+    "slots.ItemMisc": "\u0406\u043d\u0448\u0435",
   },
 };
 /*__NFT_LOCALES_END__*/
@@ -383,6 +397,14 @@ const NFT_LOCALES = {
           (Object.prototype.hasOwnProperty.call(vars, n) ? vars[n] : m));
       }
       return s;
+    }
+
+    // Resolve a BC slot/group name (e.g. "ItemHandheld") to its localized label,
+    // falling back to the raw name if no translation exists.
+    function slotLabel(g) {
+      if (!g) return g;
+      const v = T("slots." + g);
+      return v === "slots." + g ? g : v;
     }
   
     // --- Storage ---------------------------------------------------------------
@@ -417,14 +439,14 @@ const NFT_LOCALES = {
         ChatRoomCharacterUpdate(player);
       }
       const item = InventoryGet(player, Group);
-      if (!item) return { ok: false, msg: T("msg.cannotEquip", { name: Name, group: Group }) };
+      if (!item) return { ok: false, msg: T("msg.cannotEquip", { name: Name, group: slotLabel(Group) }) };
       if (snap.Color      !== undefined) item.Color      = JSON.parse(JSON.stringify(snap.Color));
       if (snap.Difficulty !== undefined) item.Difficulty = snap.Difficulty;
       if (snap.Property   !== undefined) item.Property   = JSON.parse(JSON.stringify(snap.Property));
       if (snap.Craft      !== undefined) item.Craft      = JSON.parse(JSON.stringify(snap.Craft));
       ChatRoomCharacterUpdate(player);
       CharacterLoadCanvas(player);
-      return { ok: true, msg: T("msg.applied", { name: snap.Craft?.Name ?? Name, group: Group }) };
+      return { ok: true, msg: T("msg.applied", { name: snap.Craft?.Name ?? Name, group: slotLabel(Group) }) };
     }
   
     // --- UI helpers ------------------------------------------------------------
@@ -519,7 +541,7 @@ const NFT_LOCALES = {
           `flex:1;padding:10px;border-radius:8px;cursor:pointer;font-size:13px;font-weight:700;
            border:2px solid;transition:all .15s;letter-spacing:.3px;`
         );
-        b.textContent = slot;
+        b.textContent = T("slots." + slot);
         b.onclick = () => {
           selected = slot;
           SUPPORTED_SLOTS.forEach(s => {
@@ -544,7 +566,7 @@ const NFT_LOCALES = {
       const c = snap.Craft;
       const lines = [
         `${T("preview.asset")}: ${snap.Asset?.Name ?? "\u2014"}`,
-        `${T("preview.slot")}: ${snap.Asset?.Group ?? "\u2014"}`,
+        `${T("preview.slot")}: ${slotLabel(snap.Asset?.Group)}`,
         `${T("preview.colour")}: ${Array.isArray(snap.Color) ? snap.Color.join(", ") : (snap.Color ?? "Default")}`,
       ];
       if (c) {
@@ -572,7 +594,7 @@ const NFT_LOCALES = {
       );
       if (!keys.length) {
         const o = document.createElement("option");
-        o.value = ""; o.disabled = true; o.textContent = "\u2014 no saves yet \u2014";
+        o.value = ""; o.disabled = true; o.textContent = T("list.noSaves");
         sel.appendChild(o);
         return;
       }
@@ -581,7 +603,7 @@ const NFT_LOCALES = {
         const d = e.snap?._savedAt ? new Date(e.snap._savedAt).toLocaleDateString() : "?";
         const o = document.createElement("option");
         o.value = k;
-        o.textContent = T("list.entry", { group: e.snap?.Asset?.Group ?? "?", label: e.label, name: e.snap?.Asset?.Name ?? "?", date: d });
+        o.textContent = T("list.entry", { group: slotLabel(e.snap?.Asset?.Group), label: e.label, name: e.snap?.Asset?.Name ?? "?", date: d });
         sel.appendChild(o);
       });
     }
@@ -778,7 +800,7 @@ const NFT_LOCALES = {
   
       loadPane.appendChild(lbl(T("load.applySlotLabel")));
       const slotOverride = selectEl();
-      [["", T("load.autoSlot")], ...SUPPORTED_SLOTS.map(s => [s, s])].forEach(([v, t]) => {
+      [["", T("load.autoSlot")], ...SUPPORTED_SLOTS.map(s => [s, T("slots." + s)])].forEach(([v, t]) => {
         const o = document.createElement("option");
         o.value = v; o.textContent = t;
         slotOverride.appendChild(o);

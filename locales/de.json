@@ -51,5 +51,7 @@
   "msg.missingAsset": "Snapshot ohne Gegenstandsinfo.",
   "msg.noPlayer": "Spieler nicht gefunden.",
   "msg.cannotEquip": "„{name}“ konnte nicht in „{group}“ ausgerüstet werden. Gegenstand existiert evtl. nicht.",
-  "msg.applied": "„{name}“ auf {group} angewendet."
+  "msg.applied": "„{name}“ auf {group} angewendet.",
+  "slots.ItemHandheld": "Hand",
+  "slots.ItemMisc": "Sonstiges"
 }

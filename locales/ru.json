@@ -51,5 +51,7 @@
   "msg.missingAsset": "Снимок без информации о предмете.",
   "msg.noPlayer": "Игрок не найден.",
   "msg.cannotEquip": "Не удалось надеть «{name}» в «{group}». Возможно, предмет не существует.",
-  "msg.applied": "«{name}» применён к {group}."
+  "msg.applied": "«{name}» применён к {group}.",
+  "slots.ItemHandheld": "В руках",
+  "slots.ItemMisc": "Прочее"
 }

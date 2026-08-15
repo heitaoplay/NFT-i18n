@@ -51,5 +51,7 @@
   "msg.missingAsset": "Instantané sans info sur l'objet.",
   "msg.noPlayer": "Joueuse introuvable.",
   "msg.cannotEquip": "Impossible d'équiper « {name} » dans « {group} ». L'objet n'existe peut-être pas.",
-  "msg.applied": "« {name} » appliqué à {group}."
+  "msg.applied": "« {name} » appliqué à {group}.",
+  "slots.ItemHandheld": "Tenu",
+  "slots.ItemMisc": "Divers"
 }

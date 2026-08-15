@@ -51,5 +51,7 @@
   "msg.missingAsset": "Знімок без інформації про предмет.",
   "msg.noPlayer": "Гравця не знайдено.",
   "msg.cannotEquip": "Не вдалося одягнути «{name}» у «{group}». Можливо, предмет не існує.",
-  "msg.applied": "«{name}» застосовано до {group}."
+  "msg.applied": "«{name}» застосовано до {group}.",
+  "slots.ItemHandheld": "В руках",
+  "slots.ItemMisc": "Інше"
 }

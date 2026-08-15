@@ -51,5 +51,7 @@
   "msg.missingAsset": "存档缺少道具信息。",
   "msg.noPlayer": "未找到玩家。",
   "msg.cannotEquip": "无法在“{group}”中装备“{name}”。道具可能不存在。",
-  "msg.applied": "已将“{name}”应用到 {group}。"
+  "msg.applied": "已将“{name}”应用到 {group}。",
+  "slots.ItemHandheld": "手持",
+  "slots.ItemMisc": "杂项"
 }

@@ -111,7 +111,7 @@ function engine(lang) {
       if (typeof v !== "string" || v === k && k in NFT_LOCALES.EN === false) { allOk = false; }
     }
   }
-  check("all 7 languages resolve all 45 keys", allOk && refKeys.length === 45);
+  check("all 7 languages resolve all " + refKeys.length + " keys", allOk && refKeys.length >= 45);
 }
 
 if (failures) {
