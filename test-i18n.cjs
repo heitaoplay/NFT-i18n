@@ -38,11 +38,14 @@ function extractFn(name) {
 }
 const resolveSrc = extractFn("NFT_resolveLang");
 const tSrc = extractFn("T");
+const ovSrc = extractFn("getLangOverride");
 
 // --- build a sandbox exposing a mutable TranslationLanguage ---
 const factory = new Function(
   "TranslationLanguage",
-  objSrc + "\n" + resolveSrc + "\n" + tSrc +
+  // stub localStorage so language-override lookups don't throw in node
+  "var localStorage = { getItem: () => null, setItem: () => {}, removeItem: () => {} };\n" +
+  objSrc + "\n" + ovSrc + "\n" + resolveSrc + "\n" + tSrc +
   "\nreturn { NFT_LOCALES, NFT_resolveLang, T };"
 );
 

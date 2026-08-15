@@ -1,7 +1,7 @@
 ﻿// ==UserScript==
 // @name NFT - Nest of Fluffy Treasures
 // @namespace https://www.bondageprojects.com/
-// @version 1.5.3
+// @version 1.5.4
 // @description NFT - Nest of Fluffy Treasures (multilingual EN/DE/FR/RU/CN/TW/UA): Save and load ItemHandheld / ItemMisc items with full appearance, crafter and property restore.
 // @author Nicole, Felix, Tifa
 // @match https://bondageprojects.elementfx.com/*
