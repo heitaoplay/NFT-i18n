@@ -1,0 +1,55 @@
+{
+  "ui.title": "✶ Held Item Saver",
+  "ui.triggerTitle": "NFT - Nest of Fluffy Treasures",
+
+  "tab.save": "💾 Save Item",
+  "tab.load": "📦 Load / Manage",
+
+  "save.slotPrompt": "Which slot do you want to save?",
+  "save.currentItemNote": "Current item in selected slot:",
+  "save.nameLabel": "Save name",
+  "save.namePlaceholder": "e.g. My enchanted lantern",
+  "save.button": "💾 Save Item",
+  "save.emptySlot": "Slot {slot} is currently empty.",
+  "save.enterName": "Enter a save name.",
+  "save.slotEmpty": "Slot {slot} is empty — nothing to save.",
+  "save.saved": "Saved \"{nm}\" ({name} / {slot}).",
+
+  "load.intro": "Pick a save, check the preview, then apply it.",
+  "load.savedItems": "Saved items",
+  "load.previewHint": "Select a save to preview…",
+  "load.applySlotLabel": "Apply to slot (auto from save)",
+  "load.autoSlot": "Auto (use slot from save)",
+  "load.apply": "📦 Apply",
+  "load.delete": "🗑 Delete",
+  "load.selectFirst": "Select a save first.",
+  "load.deleted": "Deleted \"{label}\".",
+
+  "io.export": "⬆ Export JSON",
+  "io.import": "⬇ Import JSON",
+  "io.exported": "JSON downloaded.",
+  "io.importFailed": "Import failed: {err}",
+  "io.imported": "Imported {count} save(s). Existing saves kept.",
+
+  "preview.nothing": "Nothing in this slot.",
+  "preview.asset": "Asset",
+  "preview.slot": "Slot",
+  "preview.colour": "Colour",
+  "preview.craft": "── Craft ──",
+  "preview.craftName": "Name",
+  "preview.crafter": "Crafter",
+  "preview.desc": "Desc",
+  "preview.color": "Color",
+  "preview.property": "Property",
+  "preview.extended": "── Extended props ──",
+
+  "list.noSaves": "— no saves yet —",
+  "list.entry": "[{group}]  {label}  — {name}  ({date})",
+
+  "status.ready": "Ready.",
+
+  "msg.missingAsset": "Snapshot missing asset info.",
+  "msg.noPlayer": "Player not found.",
+  "msg.cannotEquip": "Could not equip \"{name}\" in \"{group}\". Asset may not exist.",
+  "msg.applied": "Applied \"{name}\" to {group}."
+}

@@ -1,0 +1,55 @@
+{
+  "ui.title": "✶ Хранилище предметов",
+  "ui.triggerTitle": "NFT - Nest of Fluffy Treasures",
+
+  "tab.save": "💾 Сохранить предмет",
+  "tab.load": "📦 Загрузить / Управление",
+
+  "save.slotPrompt": "Какой слот вы хотите сохранить?",
+  "save.currentItemNote": "Текущий предмет в выбранном слоте:",
+  "save.nameLabel": "Имя сохранения",
+  "save.namePlaceholder": "напр. Моя зачарованная лампа",
+  "save.button": "💾 Сохранить предмет",
+  "save.emptySlot": "Слот {slot} сейчас пуст.",
+  "save.enterName": "Введите имя сохранения.",
+  "save.slotEmpty": "Слот {slot} пуст — сохранять нечего.",
+  "save.saved": "«{nm}» сохранён ({name} / {slot}).",
+
+  "load.intro": "Выберите сохранение, проверьте предпросмотр и примените его.",
+  "load.savedItems": "Сохранённые предметы",
+  "load.previewHint": "Выберите сохранение для предпросмотра…",
+  "load.applySlotLabel": "Применить к слоту (авто из сохранения)",
+  "load.autoSlot": "Авто (использовать слот из сохранения)",
+  "load.apply": "📦 Применить",
+  "load.delete": "🗑 Удалить",
+  "load.selectFirst": "Сначала выберите сохранение.",
+  "load.deleted": "«{label}» удалён.",
+
+  "io.export": "⬆ Экспорт JSON",
+  "io.import": "⬇ Импорт JSON",
+  "io.exported": "JSON загружен.",
+  "io.importFailed": "Ошибка импорта: {err}",
+  "io.imported": "Импортировано сохранений: {count}. Существующие сохранены.",
+
+  "preview.nothing": "В этом слоте ничего нет.",
+  "preview.asset": "Предмет",
+  "preview.slot": "Слот",
+  "preview.colour": "Цвет",
+  "preview.craft": "── Создание ──",
+  "preview.craftName": "Имя",
+  "preview.crafter": "Создатель",
+  "preview.desc": "Опис.",
+  "preview.color": "Цвет",
+  "preview.property": "Свойство",
+  "preview.extended": "── Доп. свойства ──",
+
+  "list.noSaves": "— пока нет сохранений —",
+  "list.entry": "[{group}]  {label}  — {name}  ({date})",
+
+  "status.ready": "Готово.",
+
+  "msg.missingAsset": "Снимок без информации о предмете.",
+  "msg.noPlayer": "Игрок не найден.",
+  "msg.cannotEquip": "Не удалось надеть «{name}» в «{group}». Возможно, предмет не существует.",
+  "msg.applied": "«{name}» применён к {group}."
+}

@@ -1,0 +1,55 @@
+{
+  "ui.title": "✶ 手持道具存档",
+  "ui.triggerTitle": "NFT - Nest of Fluffy Treasures",
+
+  "tab.save": "💾 保存道具",
+  "tab.load": "📦 读取 / 管理",
+
+  "save.slotPrompt": "你想保存哪个槽位？",
+  "save.currentItemNote": "当前所选槽位中的道具：",
+  "save.nameLabel": "存档名称",
+  "save.namePlaceholder": "例如：我的魔法灯笼",
+  "save.button": "💾 保存道具",
+  "save.emptySlot": "槽位 {slot} 当前为空。",
+  "save.enterName": "请输入存档名称。",
+  "save.slotEmpty": "槽位 {slot} 为空 — 没有可保存的内容。",
+  "save.saved": "已保存“{nm}”（{name} / {slot}）。",
+
+  "load.intro": "选择一个存档，查看预览，然后应用它。",
+  "load.savedItems": "已保存的道具",
+  "load.previewHint": "选择一个存档以预览…",
+  "load.applySlotLabel": "应用到槽位（默认取自存档）",
+  "load.autoSlot": "自动（使用存档中的槽位）",
+  "load.apply": "📦 应用",
+  "load.delete": "🗑 删除",
+  "load.selectFirst": "请先选择一个存档。",
+  "load.deleted": "已删除“{label}”。",
+
+  "io.export": "⬆ 导出 JSON",
+  "io.import": "⬇ 导入 JSON",
+  "io.exported": "JSON 已下载。",
+  "io.importFailed": "导入失败：{err}",
+  "io.imported": "已导入 {count} 个存档。原有存档保留。",
+
+  "preview.nothing": "该槽位中没有任何道具。",
+  "preview.asset": "道具",
+  "preview.slot": "槽位",
+  "preview.colour": "颜色",
+  "preview.craft": "── 制作 ──",
+  "preview.craftName": "名称",
+  "preview.crafter": "制作者",
+  "preview.desc": "描述",
+  "preview.color": "颜色",
+  "preview.property": "属性",
+  "preview.extended": "── 扩展属性 ──",
+
+  "list.noSaves": "— 暂无存档 —",
+  "list.entry": "[{group}]  {label}  — {name}  ({date})",
+
+  "status.ready": "就绪。",
+
+  "msg.missingAsset": "存档缺少道具信息。",
+  "msg.noPlayer": "未找到玩家。",
+  "msg.cannotEquip": "无法在“{group}”中装备“{name}”。道具可能不存在。",
+  "msg.applied": "已将“{name}”应用到 {group}。"
+}

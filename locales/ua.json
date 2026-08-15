@@ -1,0 +1,55 @@
+{
+  "ui.title": "✶ Сховище предметів",
+  "ui.triggerTitle": "NFT - Nest of Fluffy Treasures",
+
+  "tab.save": "💾 Зберегти предмет",
+  "tab.load": "📦 Завантажити / Керування",
+
+  "save.slotPrompt": "Який слот ви хочете зберегти?",
+  "save.currentItemNote": "Поточний предмет у вибраному слоті:",
+  "save.nameLabel": "Назва збереження",
+  "save.namePlaceholder": "напр. Моя зачарована лампа",
+  "save.button": "💾 Зберегти предмет",
+  "save.emptySlot": "Слот {slot} зараз порожній.",
+  "save.enterName": "Введіть назву збереження.",
+  "save.slotEmpty": "Слот {slot} порожній — нічого зберігати.",
+  "save.saved": "«{nm}» збережено ({name} / {slot}).",
+
+  "load.intro": "Оберіть збереження, перегляньте його та застосуйте.",
+  "load.savedItems": "Збережені предмети",
+  "load.previewHint": "Оберіть збереження для перегляду…",
+  "load.applySlotLabel": "Застосувати до слоту (авто зі збереження)",
+  "load.autoSlot": "Авто (використати слот із збереження)",
+  "load.apply": "📦 Застосувати",
+  "load.delete": "🗑 Видалити",
+  "load.selectFirst": "Спочатку оберіть збереження.",
+  "load.deleted": "«{label}» видалено.",
+
+  "io.export": "⬆ Експорт JSON",
+  "io.import": "⬇ Імпорт JSON",
+  "io.exported": "JSON завантажено.",
+  "io.importFailed": "Помилка імпорту: {err}",
+  "io.imported": "Імпортовано збережень: {count}. Наявні збережено.",
+
+  "preview.nothing": "У цьому слоті нічого немає.",
+  "preview.asset": "Предмет",
+  "preview.slot": "Слот",
+  "preview.colour": "Колір",
+  "preview.craft": "── Створення ──",
+  "preview.craftName": "Назва",
+  "preview.crafter": "Творець",
+  "preview.desc": "Опис",
+  "preview.color": "Колір",
+  "preview.property": "Властивість",
+  "preview.extended": "── Додаткові властивості ──",
+
+  "list.noSaves": "— поки немає збережень —",
+  "list.entry": "[{group}]  {label}  — {name}  ({date})",
+
+  "status.ready": "Готово.",
+
+  "msg.missingAsset": "Знімок без інформації про предмет.",
+  "msg.noPlayer": "Гравця не знайдено.",
+  "msg.cannotEquip": "Не вдалося одягнути «{name}» у «{group}». Можливо, предмет не існує.",
+  "msg.applied": "«{name}» застосовано до {group}."
+}

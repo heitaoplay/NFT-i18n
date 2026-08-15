@@ -1,0 +1,55 @@
+{
+  "ui.title": "✶ Coffre à objets",
+  "ui.triggerTitle": "NFT - Nest of Fluffy Treasures",
+
+  "tab.save": "💾 Enregistrer l'objet",
+  "tab.load": "📦 Charger / Gérer",
+
+  "save.slotPrompt": "Quel emplacement veux-tu enregistrer ?",
+  "save.currentItemNote": "Objet actuel dans l'emplacement sélectionné :",
+  "save.nameLabel": "Nom de sauvegarde",
+  "save.namePlaceholder": "ex. Ma lanterne enchantée",
+  "save.button": "💾 Enregistrer l'objet",
+  "save.emptySlot": "L'emplacement {slot} est actuellement vide.",
+  "save.enterName": "Saisis un nom de sauvegarde.",
+  "save.slotEmpty": "L'emplacement {slot} est vide — rien à enregistrer.",
+  "save.saved": "« {nm} » enregistré ({name} / {slot}).",
+
+  "load.intro": "Choisis une sauvegarde, vérifie l'aperçu, puis applique-la.",
+  "load.savedItems": "Objets enregistrés",
+  "load.previewHint": "Choisis une sauvegarde à prévisualiser…",
+  "load.applySlotLabel": "Appliquer à l'emplacement (auto depuis la sauvegarde)",
+  "load.autoSlot": "Auto (utiliser l'emplacement de la sauvegarde)",
+  "load.apply": "📦 Appliquer",
+  "load.delete": "🗑 Supprimer",
+  "load.selectFirst": "Sélectionne d'abord une sauvegarde.",
+  "load.deleted": "« {label} » supprimé.",
+
+  "io.export": "⬆ Exporter JSON",
+  "io.import": "⬇ Importer JSON",
+  "io.exported": "JSON téléchargé.",
+  "io.importFailed": "Échec de l'import : {err}",
+  "io.imported": "{count} sauvegarde(s) importée(s). Les sauvegardes existantes sont conservées.",
+
+  "preview.nothing": "Rien dans cet emplacement.",
+  "preview.asset": "Objet",
+  "preview.slot": "Emplacement",
+  "preview.colour": "Couleur",
+  "preview.craft": "── Création ──",
+  "preview.craftName": "Nom",
+  "preview.crafter": "Créateur",
+  "preview.desc": "Desc.",
+  "preview.color": "Couleur",
+  "preview.property": "Propriété",
+  "preview.extended": "── Propriétés étendues ──",
+
+  "list.noSaves": "— aucune sauvegarde —",
+  "list.entry": "[{group}]  {label}  — {name}  ({date})",
+
+  "status.ready": "Prêt.",
+
+  "msg.missingAsset": "Instantané sans info sur l'objet.",
+  "msg.noPlayer": "Joueuse introuvable.",
+  "msg.cannotEquip": "Impossible d'équiper « {name} » dans « {group} ». L'objet n'existe peut-être pas.",
+  "msg.applied": "« {name} » appliqué à {group}."
+}

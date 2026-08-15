@@ -1,0 +1,55 @@
+{
+  "ui.title": "✶ Gegenstandsspeicher",
+  "ui.triggerTitle": "NFT - Nest of Fluffy Treasures",
+
+  "tab.save": "💾 Gegenstand speichern",
+  "tab.load": "📦 Laden / Verwalten",
+
+  "save.slotPrompt": "Welchen Slot möchtest du speichern?",
+  "save.currentItemNote": "Aktueller Gegenstand im ausgewählten Slot:",
+  "save.nameLabel": "Speichername",
+  "save.namePlaceholder": "z. B. Meine verzauberte Laterne",
+  "save.button": "💾 Gegenstand speichern",
+  "save.emptySlot": "Slot {slot} ist derzeit leer.",
+  "save.enterName": "Gib einen Speichernamen ein.",
+  "save.slotEmpty": "Slot {slot} ist leer — nichts zu speichern.",
+  "save.saved": "„{nm}“ gespeichert ({name} / {slot}).",
+
+  "load.intro": "Wähle einen Speicher, prüfe die Vorschau und wende ihn an.",
+  "load.savedItems": "Gespeicherte Gegenstände",
+  "load.previewHint": "Wähle einen Speicher zur Vorschau…",
+  "load.applySlotLabel": "Auf Slot anwenden (automatisch aus Speicher)",
+  "load.autoSlot": "Automatisch (Slot aus Speicher verwenden)",
+  "load.apply": "📦 Anwenden",
+  "load.delete": "🗑 Löschen",
+  "load.selectFirst": "Wähle zuerst einen Speicher.",
+  "load.deleted": "„{label}“ gelöscht.",
+
+  "io.export": "⬆ JSON exportieren",
+  "io.import": "⬇ JSON importieren",
+  "io.exported": "JSON heruntergeladen.",
+  "io.importFailed": "Import fehlgeschlagen: {err}",
+  "io.imported": "{count} Speicher importiert. Vorhandene bleiben erhalten.",
+
+  "preview.nothing": "In diesem Slot ist nichts.",
+  "preview.asset": "Gegenstand",
+  "preview.slot": "Slot",
+  "preview.colour": "Farbe",
+  "preview.craft": "── Herstellung ──",
+  "preview.craftName": "Name",
+  "preview.crafter": "Ersteller",
+  "preview.desc": "Beschreibung",
+  "preview.color": "Farbe",
+  "preview.property": "Eigenschaft",
+  "preview.extended": "── Erweiterte Eigenschaften ──",
+
+  "list.noSaves": "— noch keine Speicher —",
+  "list.entry": "[{group}]  {label}  — {name}  ({date})",
+
+  "status.ready": "Bereit.",
+
+  "msg.missingAsset": "Snapshot ohne Gegenstandsinfo.",
+  "msg.noPlayer": "Spieler nicht gefunden.",
+  "msg.cannotEquip": "„{name}“ konnte nicht in „{group}“ ausgerüstet werden. Gegenstand existiert evtl. nicht.",
+  "msg.applied": "„{name}“ auf {group} angewendet."
+}
